@@ -101,11 +101,24 @@ const SearchResultList = ({
           {list.map((track) => (
             <TableRow key={track.id} hover>
               <TableCell sx={{ borderBottom: "none" }}>
-                <Avatar
+                {/* <Avatar
                   src={track.album?.images?.[0]?.url}
                   alt={track.name}
                   variant="square"
                   sx={{ width: 50, height: 50, borderRadius: 1 }}
+                  loading="lazy"
+                /> */}
+                <img
+                  src={track.album?.images?.[0]?.url}
+                  alt={track.name}
+                  width={50}
+                  height={50}
+                  loading="lazy"
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: 8,
+                    background: "gray",
+                  }}
                 />
               </TableCell>
               <TableCell sx={{ borderBottom: "none" }}>

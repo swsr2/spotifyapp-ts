@@ -24,7 +24,7 @@ import useRequireAuth from "../hooks/RequireAuth"; // ✅ 커스텀 인증 훅
 import EmptyPlaylistWithSearch from "./components/EmptyPlaylistWithSearch";
 import DesktopPlaylistItem from "./components/DesktopPlaylistItem";
 
-const DEFAULT_ALBUM = "/music_album.webp";
+const DEFAULT_ALBUM = "/music_album.?v=1";
 
 const ResponsiveAlbumImage = styled(Avatar)(({ theme }) => ({
   borderRadius:

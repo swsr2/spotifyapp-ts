@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { PAGE_LIMIT } from "../../configs/commonConfig";
 import { styled } from "@mui/material";
 
-const DEFAULT_ALBUM = "/music_album.webp";
+const DEFAULT_ALBUM = "/music_album.webp?v=1";
 
 interface PlaylistItemProps {
   selected?: boolean;
