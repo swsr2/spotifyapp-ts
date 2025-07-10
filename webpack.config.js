@@ -72,6 +72,17 @@ module.exports = (env, argv) => {
       minimize: isProduction,
       splitChunks: {
         chunks: "all",
+        minSize: 20000,
+        maxSize: 250000,
+        maxInitialRequests: 5,
+        maxAsyncRequests: 3,
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
+        },
       },
     },
     plugins: [
