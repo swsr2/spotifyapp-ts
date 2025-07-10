@@ -27,9 +27,13 @@ import DesktopPlaylistItem from "./components/DesktopPlaylistItem";
 const DEFAULT_ALBUM = "/music_album.png";
 
 const ResponsiveAlbumImage = styled(Avatar)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius:
+    typeof theme.shape.borderRadius === "number"
+      ? theme.shape.borderRadius * 2
+      : parseInt(theme.shape.borderRadius, 10) * 2,
   width: 200,
   height: 200,
+  background: "gray",
   [theme.breakpoints.down("md")]: { width: 140, height: 140 },
   [theme.breakpoints.down("sm")]: { width: 120, height: 120 },
 }));
