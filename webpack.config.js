@@ -69,12 +69,18 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
     },
     optimization: {
-      minimize: isProduction,
+      // minimize: isProduction,
+      splitChunks: {
+        chunks: "all",
+        maxInitialRequests: 3,
+        minSize: 20000,
+      },
     },
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "index.html"),
+        scriptLoading: "defer",
       }),
       new Dotenv({
         path: isProduction ? ".env.production" : ".env.development",
