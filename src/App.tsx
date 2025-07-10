@@ -28,15 +28,17 @@ function App() {
   }, [code, codeVerifier, exchangeToken]);
 
   return (
-    <Routes>
-      <Route path="/" element={<AppLayout />}>
-        <Route index element={<Homepage />} />
-        <Route path="/search" element={<Searchpage />} />
-        <Route path="/search/:keyword" element={<Searchpage />} />
-        <Route path="playlist/:id" element={<PlaylistpageDetail />} />
-        <Route path="playlist" element={<Playlistpage />} />
-      </Route>
-    </Routes>
+    <Suspense fallback={<LoadingSpinner />}>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<Homepage />} />
+          <Route path="/search" element={<Searchpage />} />
+          <Route path="/search/:keyword" element={<Searchpage />} />
+          <Route path="playlist/:id" element={<PlaylistpageDetail />} />
+          <Route path="playlist" element={<Playlistpage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 
