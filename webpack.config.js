@@ -2,8 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { PurgeCSSPlugin } = require("purgecss-webpack-plugin"); 
-const glob = require("glob"); 
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
+const glob = require("glob");
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
@@ -70,6 +70,9 @@ module.exports = (env, argv) => {
     },
     optimization: {
       minimize: isProduction,
+      splitChunks: {
+        chunks: "all",
+      },
     },
     plugins: [
       new CleanWebpackPlugin(),
