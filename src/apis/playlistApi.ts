@@ -43,7 +43,6 @@ export const getPlaylistItems = async (
   params: GetPlaylistItemsRequest
 ): Promise<GetPlaylistItemsResponse> => {
   const token = await getClientCredentialToken();
-  // console.log("토큰있냐", token)
   const { playlist_id, ...queryParams } = params;
 
   try {

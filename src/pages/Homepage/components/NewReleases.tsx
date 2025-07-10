@@ -7,8 +7,7 @@ import { Grid } from "@mui/material";
 import CardComponent from "../../../common/components/CardComponent";
 
 const NewReleases = () => {
-  const { data, isLoading, error } = useGetNewReleases();
-  // console.log("check data", data)
+  const { data, error } = useGetNewReleases();
 
   if (error) {
     return <ErrorMessage errorMessage={error.message} />;

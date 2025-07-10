@@ -17,7 +17,6 @@ const Searchpage = () => {
 
   const accessToken = localStorage.getItem("access_token");
   const isLoggedIn = !!accessToken;
-  // console.log(isLoggedIn);
 
   const {
     data: searchData,
@@ -51,8 +50,6 @@ const Searchpage = () => {
 
   const { data: categoryData, isLoading: isLoadingCategories } =
     useGetCategory();
-
-  // console.log("서치데이터", flatTrackList);
 
   useEffect(() => {
     if (urlKeyword && keyword !== decodeURIComponent(urlKeyword)) {

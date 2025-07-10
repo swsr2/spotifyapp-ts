@@ -56,8 +56,6 @@ const Playlist = () => {
   if (isLoading) return <LoadingSpinner />;
   if (error) return <ErrorMessage errorMessage={error.message} />;
 
-  // console.log('데이터', data)
-
   const playlists = data?.pages.flatMap((page) => page.items) || [];
 
   return (
@@ -77,7 +75,6 @@ const Playlist = () => {
             const imageUrl = playlist.images?.[0]?.url || DEFAULT_ALBUM;
             const isSelected = selectedId === playlist.id;
             const handleClick = (id: string) => {
-              // console.log('클릭한 플레이리스트 ID:', id)
               setSelectedId(id);
               navigate(`/playlist/${id}`);
             };

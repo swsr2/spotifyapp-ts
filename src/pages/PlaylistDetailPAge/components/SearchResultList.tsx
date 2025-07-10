@@ -42,7 +42,6 @@ const SearchResultList = ({
   const [pendingPlaylistId, setPendingPlaylistId] = useState<string | null>(
     null
   );
-  // console.log('아이디 있냐',playlistId)
 
   const handlePlaylistAddClick = (trackUri: string) => {
     if (!playlistId) return; // 방어 코드
@@ -83,7 +82,6 @@ const SearchResultList = ({
     }
   }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
-  console.log("searchlist", list);
   if (list.length === 0) return null;
 
   return (

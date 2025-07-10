@@ -48,22 +48,3 @@ export const getAlbumsByIds = async (
   }
 };
 
-export const getAlbumTracks = async (
-  albumId: string,
-  token: string
-): Promise<AlbumTracksResponse> => {
-  try {
-    const response = await axios.get(
-      `${SPOTIFY_API_URL}/albums/${albumId}/tracks`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    return response.data;
-  } catch (error) {
-    console.error("getAlbumTracks API Error:", error);
-    throw new Error("Failed to fetch album tracks");
-  }
-};

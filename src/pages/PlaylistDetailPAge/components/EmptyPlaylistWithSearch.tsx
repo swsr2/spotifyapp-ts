@@ -17,7 +17,6 @@ const EmptyPlaylistWithSearch = ()=>{
         q:keyword,
         type:[SEARCH_TYPE.Track]
     })
-    // console.log('ddd', data)
 
     const flatTrackList = data?.pages.flatMap(page => page.tracks?.items ?? []) ?? [];
 
