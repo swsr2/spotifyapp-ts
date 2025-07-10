@@ -2,11 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin"); 
+const glob = require("glob"); 
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
 
-  return {
+  const config = {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(__dirname, "src", "index.tsx"),
     resolve: {
@@ -23,9 +25,7 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: "@svgr/webpack",
-              options: {
-                icon: true,
-              },
+              options: { icon: true },
             },
             {
               loader: "file-loader",
@@ -51,11 +51,7 @@ module.exports = (env, argv) => {
         {
           test: /\.(ts|js)x?$/,
           exclude: /node_modules/,
-          use: [
-            {
-              loader: "babel-loader",
-            },
-          ],
+          use: ["babel-loader"],
         },
       ],
     },
@@ -82,10 +78,25 @@ module.exports = (env, argv) => {
       }),
       new Dotenv({
         path: isProduction ? ".env.production" : ".env.development",
-        defaults: '.env',
+        defaults: ".env",
         allowEmptyValues: true,
         systemvars: true,
       }),
     ],
   };
+
+  if (isProduction) {
+    config.plugins.push(
+      new PurgeCSSPlugin({
+        paths: glob.sync(`${path.join(__dirname, "src")}/**/*`, {
+          nodir: true,
+        }),
+        safelist: {
+          standard: [/^Mui/, /^css-/], // MUI 클래스 보호!
+        },
+      })
+    );
+  }
+
+  return config;
 };
