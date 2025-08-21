@@ -1,46 +1,78 @@
-# Getting Started with Create React App
+# Spotify API 연동 데모 애플리케이션
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 Spotify Web API를 활용하여 만든 인터랙티브 웹 애플리케이션입니다. 사용자는 Spotify 계정으로 로그인하여 음악을 검색하고, 새로운 릴리스를 탐색하며, 자신만의 플레이리스트를 관리할 수 있습니다.
 
-## Available Scripts
+## ✨ 주요 기능
 
-In the project directory, you can run:
+- **Spotify OAuth 2.0 인증**: 안전한 Spotify 계정 로그인을 지원합니다.
+- **음악 검색**: 트랙, 아티스트, 앨범 단위의 상세한 검색이 가능합니다.
+- **최신 발매 앨범**: 홈페이지에서 Spotify의 최신 발매 앨범 정보를 확인할 수 있습니다.
+- **카테고리별 탐색**: 다양한 장르와 테마별로 음악을 탐색할 수 있습니다.
+- **플레이리스트 관리**: 사용자의 플레이리스트를 조회하고, 새로운 플레이리스트를 생성하며, 원하는 트랙을 추가할 수 있습니다.
+- **반응형 UI**: 데스크톱과 모바일 환경 모두에 최적화된 UI를 제공합니다.
 
-### `npm start`
+## 🛠️ 기술 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **프레임워크**: React
+- **언어**: TypeScript
+- **UI 라이브러리**: Material-UI (MUI)
+- **상태 관리**: TanStack React Query
+- **HTTP 클라이언트**: Axios
+- **라우팅**: React Router
+- **빌드 도구**: Webpack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 시작하기
 
-### `npm test`
+### 사전 요구 사항
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/) (v16 이상 권장)
+- [npm](https://www.npmjs.com/) 또는 [yarn](https://yarnpkg.com/)
 
-### `npm run build`
+### 설치 및 실행
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **프로젝트 클론**
+    ```bash
+    git clone https://github.com/your-username/spotify-demo.git
+    cd spotify-demo
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2.  **의존성 설치**
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.  **환경 변수 설정**
+    프로젝트 루트 디렉터리에 `.env` 파일을 생성하고 아래 내용을 채워주세요. API 키는 [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)에서 발급받을 수 있습니다.
 
-### `npm run eject`
+    ```env
+    REACT_APP_SPOTIFY_CLIENT_ID=YOUR_SPOTIFY_CLIENT_ID
+    REACT_APP_SPOTIFY_CLIENT_SECRET=YOUR_SPOTIFY_CLIENT_SECRET
+    REACT_APP_REDIRECT_URI=http://localhost:8080
+    ```
+    > **Note**: Spotify Developer Dashboard에서 Redirect URI를 `http://localhost:8080`으로 설정해야 합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4.  **개발 서버 실행**
+    ```bash
+    npm start
+    ```
+    서버가 실행되면 http://localhost:8080 에서 애플리케이션을 확인할 수 있습니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📜 사용 가능한 스크립트
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `npm start`: 개발 모드로 애플리케이션을 실행합니다.
+- `npm run build`: 프로덕션용으로 애플리케이션을 빌드합니다.
+- `npm test`: 테스트를 실행합니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📁 폴더 구조
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+/src
+├── /apis           # Spotify API 호출 함수
+├── /common         # 공통 컴포넌트 및 유틸리티
+├── /configs        # 설정 관련 파일 (인증, 공통)
+├── /hooks          # React Query를 사용한 커스텀 훅
+├── /Layout         # 애플리케이션 레이아웃 및 네비게이션
+├── /models         # TypeScript 타입 및 인터페이스 정의
+├── /pages          # 라우팅 단위의 페이지 컴포넌트
+└── /utils          # 공통 유틸리티 함수 (API, 인증 등)
+```
