@@ -1,6 +1,7 @@
 # Spotify API 연동 데모 애플리케이션
 
 이 프로젝트는 Spotify Web API를 활용하여 만든 인터랙티브 웹 애플리케이션입니다. 사용자는 Spotify 계정으로 로그인하여 음악을 검색하고, 새로운 릴리스를 탐색하며, 자신만의 플레이리스트를 관리할 수 있습니다.
+배포: https://lucky-buttercream-2b6ce4.netlify.app/
 
 ## ✨ 주요 기능
 
