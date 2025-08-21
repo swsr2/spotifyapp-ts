@@ -29,29 +29,16 @@
 - [npm](https://www.npmjs.com/) 또는 [yarn](https://yarnpkg.com/)
 
 ### 설치 및 실행
-
-1.  **프로젝트 클론**
-    ```bash
-    git clone https://github.com/your-username/spotify-demo.git
-    cd spotify-demo
-    ```
-
-2.  **의존성 설치**
+1.  **의존성 설치**
     ```bash
     npm install
     ```
 
-3.  **환경 변수 설정**
-    프로젝트 루트 디렉터리에 `.env` 파일을 생성하고 아래 내용을 채워주세요. API 키는 [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)에서 발급받을 수 있습니다.
-
-    ```env
-    REACT_APP_SPOTIFY_CLIENT_ID=YOUR_SPOTIFY_CLIENT_ID
-    REACT_APP_SPOTIFY_CLIENT_SECRET=YOUR_SPOTIFY_CLIENT_SECRET
-    REACT_APP_REDIRECT_URI=http://localhost:8080
-    ```
+2.  **환경 변수 설정**
+    프로젝트 루트 디렉터리에 `.env` 파일을 생성필요. API 키는 [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)에서 발급받을 수 있습니다.
     > **Note**: Spotify Developer Dashboard에서 Redirect URI를 `http://localhost:8080`으로 설정해야 합니다.
 
-4.  **개발 서버 실행**
+3.  **개발 서버 실행**
     ```bash
     npm start
     ```
